@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "Edit";
+}
+
+<div class="row">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-5">
+        <h5 class="my-3">Update Customer Details</h5>
+        <form method="post">
+            <div class="input-group mb-3 d-none">
+                <span class="input-group-text bg-primary text-light me-2 w-25">CustomerId</span>
+                <input type="text" name="CustomerId" readonly value="@Model.CustomerId" class="form-control" />
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text bg-primary text-light me-2 w-25 ">Customer Name</span>
+                <input type="text" name="CustomerName" value="@Model.CustomerName" class="form-control" />
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text bg-primary text-light w-25 me-2">Address</span>
+                <input type="text" name="Address" value="@Model.Address" class="form-control" />
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text bg-primary text-light w-25 me-2">Created Date</span>
+                <input type="datetime" name="CreatedDate" value="@Model.CreatedDate" class="form-control" />
+            </div>
+            <br />
+            <button type="submit" class="btn text-bg-primary">Update Customer</button>
+        </form>
+    </div>
+    <div class="col-sm-3"></div>
+</div>
+
+
+
