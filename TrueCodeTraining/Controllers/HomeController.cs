@@ -9,6 +9,7 @@ using TrueCodeTraining.Repository;
 
 namespace TrueCodeTraining.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         public ActionResult Index()

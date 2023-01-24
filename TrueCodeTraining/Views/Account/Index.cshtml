@@ -1,0 +1,61 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout_account.cshtml";
+}
+
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="row ms-4 m-1">
+    <div class="col-sm-10 p-5  pb-0" style="box-shadow:0px 0px 2px 0px gray;">
+        <form method="post" action="/account/AddUser">
+
+            <div class="mb-4">
+                <input type="text" required placeholder="Enter your First Name" class="form-control rounded-1" name="FirstName" />
+            </div>
+            <div class="mb-4">
+                <input type="text" required placeholder="Enter your Last Name" class="form-control" name="LastName" />
+            </div>
+            <div class="mb-4">
+                <input type="text" required placeholder="Enter your User Name" class="form-control" name="UserName" />
+            </div>
+            <div class="mb-4">
+                <input type="text" required placeholder="Enter your Email" class="form-control" name="Email" />
+            </div>
+            <div class="mb-4">
+                <input type="text" required placeholder="Enter your Password" class="form-control" name="Password" />
+            </div>
+            <div class=" mb-4">
+                <input type="checkbox" name="Status" /> Please check the if active
+            </div>
+            <div class="mb-4">
+                <input type="submit" class=" btn btn-primary" value="Register" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<!--Login Modal-->
+<div class="modal fade mt-5" id="exampleModalLogin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog p-5">
+        <div class="modal-content">
+            <div class="modal-body p-4">
+                <p class="text-center fs-3 text-primary">Login <b>Here <i class=""></i></b></p>
+                <form method="post">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" required name="UserName" placeholder="Enter your UserId">
+                    </div>
+                    <div class="input-group mb-3">
+
+                        <input type="password" class="form-control" required name="Password" placeholder="Enter your password">
+                    </div>
+                    <button type="submit" class="btn btn-outline-primary w-100">Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

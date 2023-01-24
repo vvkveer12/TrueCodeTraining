@@ -64,8 +64,8 @@
                                 </script>
                             </td>
                             <td>
-                                <a href="/Home/Edit/@data.CustomerId"><i class="bi bi-pencil-square text-success" ></i></a>
-                             
+                                <a href="/Home/Edit/@data.CustomerId"><i class="bi bi-pencil-square text-success"></i></a>
+
                             </td>
                         </tr>
                         index = index + 1;
@@ -122,4 +122,69 @@
         </div>
     </div>
 </div>
+
+<!--Register Modal-->
+@*<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalRegister">
+        Launch demo modal
+    </button>*@
+
+<!--Register Modal -->
+@*<div class="modal fade" id="exampleModalRegister" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-3">
+                <p class="text-center fs-3 text-primary">Register <b>Here <i class="fa-solid fa-lock"></i></b></p>
+                <div class="modal-body">
+                    <form method="post" action="/account/AddUser">
+                       
+                        <div class="mb-4">
+                            <input type="text" required placeholder="Enter your First Name" class="form-control" name="FirstName" />
+                        </div>
+                        <div class="mb-4">
+                            <input type="text" required placeholder="Enter your Last Name" class="form-control" name="LastName" />
+                        </div>
+                        <div class="mb-4">
+                            <input type="text" required placeholder="Enter your User Name" class="form-control" name="UserName" />
+                        </div>
+                        <div class="mb-4">
+                            <input type="text" required placeholder="Enter your Email" class="form-control" name="Email" />
+                        </div>
+                        <div class="mb-4">
+                            <input type="text" required placeholder="Enter your Password" class="form-control" name="Password" />
+                        </div>
+                        <div class=" mb-4">
+                            <input type="checkbox" name="Status" /> Please check the if active
+                        </div>
+                        <div class="mb-4">
+                            <input type="submit" class="bg-primary" value="Register" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>*@
+
+<!--Login Modal -->
+@*<div class="modal fade mt-5" id="exampleModalLogin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog p-5">
+        <div class="modal-content">
+            <div class="modal-body p-4">
+                <p class="text-center fs-3 text-primary">Login <b>Here <i class="fa-solid fa-lock"></i></b></p>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" name="UrerName" placeholder="Enter your UserId">
+                </div>
+                <div class="input-group mb-3">
+
+                    <input type="password" class="form-control" name="Password" placeholder="Enter your password">
+                </div>
+                <button class="btn btn-outline-primary w-100">Login</button>
+            </div>
+        </div>
+    </div>
+</div>*@
 
