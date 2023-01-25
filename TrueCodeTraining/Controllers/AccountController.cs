@@ -13,6 +13,7 @@ namespace TrueCodeTraining.Controllers
     public class AccountController : Controller
     {
         // GET: Account
+        [AllowAnonymous]
         public ActionResult Index(UserVm userVm)
         {
             if(userVm.UserName != null  && userVm.Password != null) {
@@ -25,15 +26,19 @@ namespace TrueCodeTraining.Controllers
             }
                 return View();
         }
+        [AllowAnonymous]
+        [HttpPost]
         public ActionResult AddUser(UserVm userVm)
         {
-            var data = new UserRepository();
-            var singleUser = data.GetAllUser(userVm);
-            if(singleUser != null) {
-                if (singleUser.UserName == userVm.UserName || singleUser.Email == userVm.Email)
-                    return Content("<script>alert('User Name or Email alredy exits');window.location.href='/home/index'</script>");
-            }           
-            var userdata = data.AddUserData(userVm);
+            if(ModelState.IsValid) {
+                var data = new UserRepository();
+                var singleUser = data.GetAllUser(userVm);
+                if (singleUser != null) {
+                    if (singleUser.UserName == userVm.UserName || singleUser.Email == userVm.Email)
+                        return Content("<script>alert('User Name or Email alredy exits');window.location.href='/home/index'</script>");
+                }
+                var userdata = data.AddUserData(userVm);
+            }
             return RedirectToAction("Index", "Home");
         }
         public ActionResult Logout()
