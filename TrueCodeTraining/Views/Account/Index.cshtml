@@ -1,4 +1,4 @@
-﻿
+﻿@model TrueCodeTraining.DbModel.User
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout_account.cshtml";
@@ -14,20 +14,23 @@
         <h4 class="text-center text-bg-primary w-100 rounded-top">Register Here !</h4>
         <div class="row p-4 pt-4 pb-0">
             <form method="post" action="/account/AddUser">
+                @Html.ValidationSummary()
                 <div class="mb-4">
-                    <input type="text" required placeholder="Enter your First Name" class="form-control rounded-1" name="FirstName" />
+                    <input type="text"  placeholder="Enter your First Name" autocomplete="off" class="form-control rounded-1" name="FirstName" />
+                    @Html.ValidationMessageFor(m => m.FirstName,"This field is required ", new { @class = "text-danger", style="font-size:10px;" })
                 </div>
                 <div class="mb-4">
-                    <input type="text" required placeholder="Enter your Last Name" class="form-control" name="LastName" />
+                    <input type="text"  placeholder="Enter your Last Name" class="form-control" name="LastName" />
                 </div>
                 <div class="mb-4">
-                    <input type="text" required placeholder="Enter your User Name" class="form-control" name="UserName" />
+                    <input type="text"  placeholder="Enter your User Name" autocomplete="off" class="form-control" name="UserName" />
                 </div>
                 <div class="mb-4">
-                    <input type="text" required placeholder="Enter your Email" class="form-control" name="Email" />
+                    <input type="text"  placeholder="Enter your Email" class="form-control" name="Email" />
+                    @Html.ValidationMessageFor(d => d.Email,"Please enter the valid email address",new { @class = "text-danger", style="font-size:10px;"})
                 </div>
                 <div class="mb-4">
-                    <input type="password" required placeholder="Enter your Password" class="form-control" name="Password" />
+                    <input type="password" autocomplete="off"  placeholder="Enter your Password" class="form-control" name="Password" />
                 </div>
                 <div class=" mb-4">
                     <input type="checkbox" value="True" name="Status" /> Please check the if active
@@ -49,11 +52,11 @@
                 <p class="text-center fs-3 text-primary">Login <b>Here <i class=""></i></b></p>
                 <form method="post">
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" required name="UserName" placeholder="Enter your UserId">
+                        <input type="text" class="form-control"  name="UserName" placeholder="Enter your UserId">
                     </div>
                     <div class="input-group mb-3">
 
-                        <input type="password" class="form-control" required name="Password" placeholder="Enter your password">
+                        <input type="password" class="form-control"  name="Password" placeholder="Enter your password">
                     </div>
                     <button type="submit" class="btn btn-outline-primary w-100">Login</button>
                     <a href="/account/index"><p>Already have an account ? <span class="text-primary" data-bs-toggle="modal" data-bs-target="#exampleModalLogin" style="cursor:pointer;">Regsiter</span></p></a>

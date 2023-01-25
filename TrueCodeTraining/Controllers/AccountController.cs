@@ -14,6 +14,11 @@ namespace TrueCodeTraining.Controllers
     {
         // GET: Account
         [AllowAnonymous]
+        public ActionResult Index()
+        {
+            return View();
+        }
+        [HttpPost]
         public ActionResult Index(UserVm userVm)
         {
             if(userVm.UserName != null  && userVm.Password != null) {
