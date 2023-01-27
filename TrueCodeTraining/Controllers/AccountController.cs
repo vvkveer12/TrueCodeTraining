@@ -21,15 +21,18 @@ namespace TrueCodeTraining.Controllers
         [HttpPost]
         public ActionResult Index(UserVm userVm)
         {
-            if(userVm.UserName != null  && userVm.Password != null) {
-                var data = new UserRepository();
-                var singleUser = data.LoginUser(userVm);
-                if (singleUser.UserName == userVm.UserName && singleUser.Password == userVm.Password) {
-                    FormsAuthentication.SetAuthCookie(userVm.UserName, false);
-                    return RedirectToAction("Index", "Home");
+           if(ModelState.IsValid) {
+                if (userVm.UserName != null && userVm.Password != null) {
+                    var data = new UserRepository();
+                    var singleUser = data.LoginUser(userVm);
+                    if (singleUser.UserName == userVm.UserName && singleUser.Password == userVm.Password) {
+                        FormsAuthentication.SetAuthCookie(userVm.UserName, false);
+                        return RedirectToAction("Index", "Home");
+                    }
                 }
             }
-                return View();
+            return View();
+                
         }
         [AllowAnonymous]
         [HttpPost]
@@ -44,7 +47,7 @@ namespace TrueCodeTraining.Controllers
                 }
                 var userdata = data.AddUserData(userVm);
             }
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Index", "account");
         }
         public ActionResult Logout()
         {

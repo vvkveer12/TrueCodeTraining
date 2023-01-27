@@ -11,16 +11,16 @@ namespace TrueCode.Model
     {
         public int UserID { get; set; }
         [StringLength(200)]
-        [Required(ErrorMessage ="Your must fill this field")]
+        [Required]
         public string FirstName { get; set; }
         [StringLength(200)]
-        [Required(ErrorMessage = "Your must fill this field")]
+        [Required]
         public string LastName { get; set; }
         [StringLength(200)]
-        [Required(ErrorMessage = "Your must fill this field")]
+        [Required]
         public string UserName { get; set; }
         [StringLength(200)]
-        [EmailAddress(ErrorMessage ="Please enter the valid email !")]
+        [EmailAddress]
         public string Email { get; set; }
         [Required]
         public string Password { get; set; }

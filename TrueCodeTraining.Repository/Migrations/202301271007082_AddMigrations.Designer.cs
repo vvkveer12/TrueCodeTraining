@@ -7,13 +7,13 @@ namespace TrueCodeTraining.Repository.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class OrderMigration : IMigrationMetadata
+    public sealed partial class AddMigrations : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(OrderMigration));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AddMigrations));
         
         string IMigrationMetadata.Id
         {
-            get { return "202301201843419_OrderMigration"; }
+            get { return "202301271007082_AddMigrations"; }
         }
         
         string IMigrationMetadata.Source
