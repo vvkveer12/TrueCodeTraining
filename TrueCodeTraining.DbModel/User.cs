@@ -12,14 +12,20 @@ namespace TrueCodeTraining.DbModel
         [Key]
         public int UserID { get; set; }
         [StringLength(200)]
+        [Required(ErrorMessage ="This field is required ")]
         public string FirstName { get; set; }
         [StringLength(200)]
+        [Required(ErrorMessage = "This field is required ")]
         public string LastName { get; set; }
         [StringLength(200)]
+        [Required(ErrorMessage = "This field is required ")]
         public string UserName { get; set; }
         [StringLength(200)]
+        [Required(ErrorMessage = "This field is required ")]
         public string Email { get; set; }
+        [Required(ErrorMessage = "This field is required ")]
         public string Password{ get; set; }
+
         public bool Status { get; set; }
     }
 }

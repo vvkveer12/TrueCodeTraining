@@ -8,6 +8,7 @@ using TrueCodeTraining.Repository;
 
 namespace TrueCodeTraining.Controllers
 {
+    [Authorize]
     public class ProductController : Controller
     {
         // GET: Product
@@ -23,6 +24,18 @@ namespace TrueCodeTraining.Controllers
             var productRepository = new ProductRepository();
             productRepository.AddProduct(productVm);
             return RedirectToAction("Index");
+        }
+        public ActionResult DeleteProduct(int? ProductId)
+        {
+            var orderRepository = new OrderRepository();
+            orderRepository.DeleteOrder((int)ProductId);
+            return RedirectToAction("Index");
+        }
+        public ActionResult GetSingleProduct(int? ProductId)
+        {
+            var orderRepository = new OrderRepository();
+            var singleProduct = orderRepository.GetSingleOrder(ProductId);
+            return View(singleProduct);
         }
 
     }

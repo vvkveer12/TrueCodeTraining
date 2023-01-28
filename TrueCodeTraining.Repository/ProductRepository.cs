@@ -34,6 +34,28 @@ namespace TrueCodeTraining.Repository
                         }).ToList();
             }
         }
-
+        // Delete Product data
+        public void DeleteProduct(int? ProductId)
+        {
+            using (TrueCodeTrainingDbContext dbContext = new TrueCodeTrainingDbContext()) {
+                var data = dbContext.Products.Find(ProductId);
+                dbContext.Products.Remove(data);
+                dbContext.SaveChanges();
+            }
+        }
+        // Get single product data 
+        public ProductVm GetSingleProduct(int ProductId)
+        {
+            using(TrueCodeTrainingDbContext dbContext = new TrueCodeTrainingDbContext()) {
+                return (from product in dbContext.Products
+                        where product.ProductId == ProductId
+                        select new ProductVm() {
+                            ProductId = product.ProductId,
+                            ProductName = product.ProductName,
+                            Price = product.Price
+                        }).FirstOrDefault();
+                      
+            }
+        }
     }
 }

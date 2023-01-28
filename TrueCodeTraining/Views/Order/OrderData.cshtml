@@ -1,0 +1,113 @@
+﻿
+@{
+    ViewBag.Title = "OrderData";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+
+<div class="row justify-content-end">
+    <div class="col-sm-2"> <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="width:120px;">Add Order </button></div>
+</div>
+<div class="row">
+    <table class="table">
+        <thead class="table-primary" style="font-size:11px;">
+            <tr>
+                <th>Sr.No.</th>
+                <th>Order Date</th>
+                <th>Customer Name</th>
+                <th colspan="2" class="text-center">Action</th>
+            </tr>
+        </thead>
+        <tbody style="font-size:12px">
+
+            @{
+                if (Model != null)
+                {
+
+                    int index = 1;
+                    foreach (var data in Model)
+                    {
+                        <tr>
+                            <td>@index</td>
+                            <td>@data.OrderDate</td>
+                            <td>@data.CustomerName</td>
+                            <td>
+                                <i class="bi bi-trash text-danger pointer-event" data-bs-toggle="modal" data-bs-target="#exampleModaldelete" style="cursor:pointer;"></i>
+                                <script>
+                                    $(document).ready(function () {
+                                        $("#btndelete").click(function () {
+                                            window.location.href = "/Order/DeleteOrder/@data.OrderId"
+                                        })
+                                    })
+                                </script>
+                                @*<a href="/Home/DeleteOrder/@data.OrderId"><i class="bi bi-trash text-danger" onclick="return DeleteOrder()"></i></a>*@
+
+                            </td>
+                            <td>
+                                <a href="/Order/GetSingleOrder/@data.OrderId"><i class="bi bi-pencil-square text-success"></i></a>
+                            </td>
+                        </tr>
+                        index = index + 1;
+                    }
+                }
+            }
+        </tbody>
+    </table>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5 text-center" id="exampleModalLabel">Add Customer Data</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+                <form method="post" action="/order/orderdata">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text bg-primary rounded-1 text-light w-25 me-2 ">OrderDate</span>
+                        <input type="date" name="OrderDate" required class="form-control rounded-1" />
+                    </div>
+                    <div class="input-group mb-3">
+                        <select class="form-control rounded-1" name="CustomerId">
+                            @{
+                                if (ViewBag.customerData != null)
+                                {
+                                    foreach (var data in ViewBag.customerData)
+                                    {
+                                        <option value="@data.CustomerId">@data.CustomerName</option>
+                                    }
+                                }
+                            }
+                        </select>
+                    </div>
+                    <br />
+                    <button type="submit" class="btn bg-primary text-light">SAVE</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </form>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Delete Modal -->
+<div class="modal fade" id="exampleModaldelete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body text-dark ">
+                Are Your sure to delete this record !
+            </div>
+            <div class="modal-footer justify-content-end">
+                <button type="button" id="closebtn" class="btn btn-secondary p-2 rounded-1" data-bs-dismiss="modal">Cencel</button>
+                <button type="button" id="btndelete" class="btn btn-primary p-2 rounded-1" data-bs-dismiss="modal">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+

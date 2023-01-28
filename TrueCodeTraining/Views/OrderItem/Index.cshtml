@@ -12,8 +12,13 @@
     <div class="col-sm-4">
         <select class="form-control rounded rounded-1" style="border-radius:0% !important">
             <option value="">--Select Customer Name--</option>
+            @foreach(var customerData in Model.CustomerList)
+            { 
+                <option value="@customerData.Value">@customerData.Text</option>
+            }
         </select>
     </div>
+
 </div>
 <div class="row mt-4">
     <div class="col-sm-2" style="color:black;">
@@ -40,30 +45,30 @@
             <tr>
                 <td>
                     <select class="form-control rounded-0 ps-2 ms-1" style="border-radius:0% !important">
-                        <option>Laptop i5</option>
-                        <option>Mobile</option>
-                        <option>Computer</option>
-                        <option>USB</option>
+                        @foreach(var productData in Model.OrderItmes)
+                        {
+                            <option>@productData.ProductName</option>
+                        }
                     </select>
-                </td>
-                <td>
-                    <input type="number" class="form-control rounded-0" style="border-radius:0% !important"/>
                 </td>
                 <td>
                     <input type="number" class="form-control rounded-0" style="border-radius:0% !important" />
                 </td>
                 <td>
-                    <input type="number" readonly class="form-control rounded-0"style="border-radius:0% !important" />
+                    <input type="number" class="form-control rounded-0" style="border-radius:0% !important" />
+                </td>
+                <td>
+                    <input type="number" readonly class="form-control rounded-0" style="border-radius:0% !important" />
                 </td>
             </tr>
             <tr style="background: #F5CEEC;color:black;">
-               <td></td>
+                <td></td>
                 <td>
-                   <span><b>4</b></span>
+                    <span><b>4</b></span>
                 </td>
                 <td></td>
                 <td>
-                   <span><b>32000</b></span>
+                    <span><b>32000</b></span>
                 </td>
             </tr>
         </tbody>

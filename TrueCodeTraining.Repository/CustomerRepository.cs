@@ -26,11 +26,18 @@ namespace TrueCodeTraining.Repository
                 deletecustomer.SaveChanges();
             }
         }
-        public List<Customer> GetAllCustomer()
+        public List<CostomerVm> GetAllCustomer()
         {
             using(TrueCodeTrainingDbContext getAllData = new TrueCodeTrainingDbContext()) {
-                var data = getAllData.Customers.ToList();
-                return data;
+                //var data = getAllData.Customers.ToList();
+                //return data;
+                return (from customer in getAllData.Customers
+                        select new CostomerVm() {
+                            CustomerId = customer.CustomerId,
+                            CustomerName = customer.CustomerName,
+                            CreatedDate = customer.CreatedDate,
+                            Address = customer.Address
+                        }).ToList();
             }
         }
         public Customer EditeData(int CustomerId)
