@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "GetSingleProduct";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row mb-5">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-5" style="box-shadow: 0px 0px 2px 0px grey; padding: 10px;">
+        <h5 class="my-3" style="text-align:center;">Update Product Details</h5>
+        <form method="post">
+            <div class="input-group mb-3 ">
+                <span class="input-group-text bg-primary text-light me-2 w-25 ">ProductId</span>
+                <input type="text" name="ProductId"  readonly value="@Model.ProductId" class="form-control " style="background: #E1E1E2;" />
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text bg-primary text-light me-2 w-25 ">Product Name</span>
+                <input type="text" name="ProductName" value="@Model.ProductName" class="form-control" />
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text bg-primary text-light w-25 me-2">Price</span>
+                <input type="text" name="Price" value="@Model.Price" class="form-control" />
+            </div>
+            @*<div class="input-group mb-3">
+                <span class="input-group-text bg-primary text-light w-25 me-2">Created Date</span>
+                <input type="datetime" name="CreatedDate" value="@Model.CreatedDate" class="form-control" />
+            </div>*@
+            <br />
+            <button type="submit" class="btn text-bg-primary">Update Product</button>
+        </form>
+    </div>
+    <div class="col-sm-3"></div>
+</div>
+
+

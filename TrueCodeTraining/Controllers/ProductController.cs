@@ -25,17 +25,29 @@ namespace TrueCodeTraining.Controllers
             productRepository.AddProduct(productVm);
             return RedirectToAction("Index");
         }
-        public ActionResult DeleteProduct(int? ProductId)
+        public ActionResult DeleteProduct(int? id)
         {
-            var orderRepository = new OrderRepository();
-            orderRepository.DeleteOrder((int)ProductId);
+            if (!id.HasValue)
+                return RedirectToAction("Index");
+            var orderRepository = new ProductRepository();
+            orderRepository.DeleteProduct((int)id);
             return RedirectToAction("Index");
         }
-        public ActionResult GetSingleProduct(int? ProductId)
+        public ActionResult GetSingleProduct(int? id)
         {
-            var orderRepository = new OrderRepository();
-            var singleProduct = orderRepository.GetSingleOrder(ProductId);
+            if (!id.HasValue)
+                return RedirectToAction("Index");
+            var productRepository = new ProductRepository();
+            var singleProduct = productRepository.GetSingleProduct((int)id);
             return View(singleProduct);
+        }
+        [HttpPost]
+        public ActionResult GetSingleProduct(ProductVm productVm)
+        {
+            var updateProduct = new ProductRepository();
+            updateProduct.UpdateProduct(productVm);
+            TempData["success"] = "Product Record Updated Successfully";
+            return RedirectToAction("Index");
         }
 
     }

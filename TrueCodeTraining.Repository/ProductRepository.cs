@@ -57,5 +57,14 @@ namespace TrueCodeTraining.Repository
                       
             }
         }
+        public void UpdateProduct(ProductVm productVm)
+        {
+            using (TrueCodeTrainingDbContext update = new TrueCodeTrainingDbContext()) {
+                var product = update.Products.Find(productVm.ProductId);
+                product.ProductName = productVm.ProductName;
+                product.Price = productVm.Price;
+                update.SaveChanges();
+            }
+        }
     }
 }

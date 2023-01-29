@@ -3,14 +3,14 @@
     ViewBag.Title = "Edit";
 }
 
-<div class="row">
+<div class="row mb-5">
     <div class="col-sm-3"></div>
-    <div class="col-sm-5">
-        <h5 class="my-3">Update Customer Details</h5>
+    <div class="col-sm-5" style="box-shadow: 0px 0px 2px 0px grey; padding: 10px;">
+        <h5 class="my-3" style="text-align:center;">Update Customer Details</h5>
         <form method="post">
-            <div class="input-group mb-3 d-none">
+            <div class="input-group mb-3 ">
                 <span class="input-group-text bg-primary text-light me-2 w-25">CustomerId</span>
-                <input type="text" name="CustomerId" readonly value="@Model.CustomerId" class="form-control" />
+                <input type="text" name="CustomerId" readonly value="@Model.CustomerId" class="form-control" style="background:lightgray;padding-left:10px;"/>
             </div>
             <div class="input-group mb-3">
                 <span class="input-group-text bg-primary text-light me-2 w-25 ">Customer Name</span>

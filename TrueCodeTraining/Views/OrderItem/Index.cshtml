@@ -12,8 +12,8 @@
     <div class="col-sm-4">
         <select class="form-control rounded rounded-1" style="border-radius:0% !important">
             <option value="">--Select Customer Name--</option>
-            @foreach(var customerData in Model.CustomerList)
-            { 
+            @foreach (var customerData in Model.CustomerList)
+            {
                 <option value="@customerData.Value">@customerData.Text</option>
             }
         </select>
@@ -44,10 +44,10 @@
         <tbody>
             <tr>
                 <td>
-                    <select class="form-control rounded-0 ps-2 ms-1" style="border-radius:0% !important">
-                        @foreach(var productData in Model.OrderItmes)
+                    <select class="form-control rounded-0 ps-2 ms-1" style="border-radius:0% !important" >
+                        @for (int i = 0; i < Model.OrderItmes.Count; i++)
                         {
-                            <option>@productData.ProductName</option>
+                            <option id="@Model.OrderItmes[i].ProductId">@Model.OrderItmes[i].ProductName</option>
                         }
                     </select>
                 </td>
@@ -77,3 +77,7 @@
         <button class="btn btn-primary">SAVE</button>
     </div>
 </div>
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<script>
+    
+</script>
