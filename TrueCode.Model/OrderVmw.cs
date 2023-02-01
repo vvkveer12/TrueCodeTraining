@@ -11,7 +11,7 @@ namespace TrueCode.Model
     {
         public int ProducId { get; set; }
         public DateTime OrderDate  { get; set; }
-        public List<ProductVm> OrderItmes  { get; set; }
+        public List<SelectListItem> OrderItmes  { get; set; }
         public List<SelectListItem> CustomerList  { get; set; }
     }
 }
