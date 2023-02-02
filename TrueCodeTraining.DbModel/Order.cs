@@ -16,5 +16,6 @@ namespace TrueCodeTraining.DbModel
         public DateTime OrderDate { get; set; }
         [ForeignKey("CustomerId")]
         public Customer customer { get; set; }
+        public List<OrderItems> OrderItems { get; set; }
     }
 }

@@ -10,10 +10,9 @@ namespace TrueCode.Model
     public class ProductVm
     {
         public int ProductId { get; set; }
-        [StringLength(200)]
-        [Required]
         public string ProductName { get; set; }
         public decimal Price { get; set; }
         public decimal TotalPrice { get; set; }
+        public long Quantity { get; set; }
     }
 }

@@ -15,5 +15,6 @@ namespace TrueCode.Model
         [StringLength(300)]
         public string Address { get; set; }
         public DateTime CreatedDate { get; set; }
+
     }
 }

@@ -24,6 +24,23 @@ namespace TrueCodeTraining.Repository
                         }).ToList();
             }
         }
+        public List<OrderItemVm> GetAllOrderItems()
+        {
+            using (TrueCodeTrainingDbContext dbContext = new TrueCodeTrainingDbContext()) {
+                return (from order in dbContext.Orders
+                        join orderItems in dbContext.OrderItems on order.OrderId equals orderItems.OrderId join
+                        customer in dbContext.Customers on order.CustomerId equals customer.CustomerId
+                        group orderItems by new { order.OrderId, order.CustomerId, order.OrderDate, customer.CustomerName, customer.Address } into groupData
+                        select new OrderItemVm() {
+                            OrderId = groupData.Key.OrderId,
+                            CustomerName = groupData.Key.CustomerName,
+                            Address = groupData.Key.Address,
+                            OrderDate = groupData.Key.OrderDate,
+                            Quantity = groupData.Sum(x=>x.Quantity),
+                            TotalPrice = groupData.Sum(x=>x.TotalPrice)
+                        }).ToList();
+            }
+        }
         public void DeleteOrder(int OrderId)
         {
             using(TrueCodeTrainingDbContext deleteOrder = new TrueCodeTrainingDbContext()) {
@@ -57,6 +74,27 @@ namespace TrueCodeTraining.Repository
                             CustomerName = customer.CustomerName                          
                         }).SingleOrDefault();
                 
+            }
+        }
+
+        public void AddOrder(OrderVmw orderVmw)
+        {
+            using (TrueCodeTrainingDbContext dbContext = new TrueCodeTrainingDbContext()) {
+                var orderDb = new Order();
+                orderDb.OrderDate = orderVmw.OrderDate;
+                orderDb.CustomerId = orderVmw.CustomerId;
+                foreach(var orderItem in orderVmw.productVms) {
+                    var orderData = new OrderItems() {
+                        Price = orderItem.Price,
+                        ProductId = orderItem.ProductId,
+                        Quantity = (int)orderItem.Quantity,
+                        TotalPrice = orderItem.TotalPrice
+                    };
+                    dbContext.OrderItems.Add(orderData);
+                };
+                dbContext.Orders.Add(orderDb);
+                dbContext.SaveChanges();
+
             }
         }
         public void UpdateOrder(OrderVm orderVm)

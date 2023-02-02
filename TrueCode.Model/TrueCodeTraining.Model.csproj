@@ -66,6 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CostomerVm.cs" />
+    <Compile Include="OrderItemVm.cs" />
     <Compile Include="OrderVm.cs" />
     <Compile Include="OrderVmw.cs" />
     <Compile Include="ProductVm.cs" />
@@ -75,6 +76,12 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TrueCodeTraining.DbModel\TrueCodeTraining.DbModel.csproj">
+      <Project>{879E7B2A-E773-4A63-8453-4BA76AF31BEA}</Project>
+      <Name>TrueCodeTraining.DbModel</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

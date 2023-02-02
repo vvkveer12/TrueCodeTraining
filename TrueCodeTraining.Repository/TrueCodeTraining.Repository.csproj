@@ -87,6 +87,14 @@
     <Compile Include="Migrations\202301281144562_changeInUsers.designer.cs">
       <DependentUpon>202301281144562_changeInUsers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202302011626019_OrderItemsMigration.cs" />
+    <Compile Include="Migrations\202302011626019_OrderItemsMigration.designer.cs">
+      <DependentUpon>202302011626019_OrderItemsMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202302011834187_OrderItemsmigration2.cs" />
+    <Compile Include="Migrations\202302011834187_OrderItemsmigration2.designer.cs">
+      <DependentUpon>202302011834187_OrderItemsmigration2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="OrderRepository.cs" />
     <Compile Include="ProductRepository.cs" />
@@ -117,6 +125,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202301281144562_changeInUsers.resx">
       <DependentUpon>202301281144562_changeInUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202302011626019_OrderItemsMigration.resx">
+      <DependentUpon>202302011626019_OrderItemsMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202302011834187_OrderItemsmigration2.resx">
+      <DependentUpon>202302011834187_OrderItemsmigration2.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

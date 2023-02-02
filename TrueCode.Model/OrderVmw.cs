@@ -9,9 +9,15 @@ namespace TrueCode.Model
 {
     public class OrderVmw
     {
-        public int ProducId { get; set; }
+        public OrderVmw()
+        {
+            CustomerList = new List<SelectListItem>();
+            productVms = new List<ProductVm>();
+        }
+     
         public DateTime OrderDate  { get; set; }
-        public List<SelectListItem> OrderItmes  { get; set; }
         public List<SelectListItem> CustomerList  { get; set; }
+        public int CustomerId { get; set; }
+        public List<ProductVm> productVms { get; set; }
     }
 }

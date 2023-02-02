@@ -27,11 +27,28 @@ namespace TrueCodeTraining.Controllers
                 Text = data.CustomerName,
                 Value = data.CustomerId.ToString()
             }).ToList();
-            orderVmw.OrderItmes = productRepository.GetAllProduct().Select(data => new System.Web.WebPages.Html.SelectListItem {
-                Text = data.ProductName,
-                Value = data.ProductId.ToString()
-            }).ToList();
+            //orderVmw.OrderItmes = productRepository.GetAllProduct().Select(data => new System.Web.WebPages.Html.SelectListItem {
+            //    Text = data.ProductName,
+            //    Value = data.ProductId.ToString()
+            //}).ToList();
             return View(orderVmw);
+        }
+        [HttpPost]
+        public ActionResult Index(OrderVmw orderVmw)
+        {
+            if(ModelState.IsValid) {
+                var orderRepository = new OrderRepository();
+                orderRepository.AddOrder(orderVmw);
+                return RedirectToAction("OrderItems");
+            }
+            return Content("<script>window.location.href='/orderitem/index'</script>");
+            
+        }
+        public ActionResult TotalOrder()
+        {
+            var orderRepository = new OrderRepository();
+            var data = orderRepository.GetAllOrderItems();
+            return View("OrderItems", data);
         }
         public ActionResult GetProduct(int ? id)
         {
